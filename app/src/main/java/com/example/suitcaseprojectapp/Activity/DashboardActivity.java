@@ -26,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
 
-       Toolbar toolbar = findViewById(R.id.toolbar_dash);
+        Toolbar toolbar = findViewById(R.id.toolbar_dash);
         setSupportActionBar(toolbar);
 
         home_card_view = findViewById(R.id.home_card_view);
@@ -38,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
         home_card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoNextPage(v,HomeActivity.class);
+                gotoNextPage(v, HomeActivity.class);
                 Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
             }
         });
@@ -47,7 +47,7 @@ public class DashboardActivity extends AppCompatActivity {
         shop_card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoNextPage(v,ShopActivity.class);
+                gotoNextPage(v, ShopActivity.class);
                 Toast.makeText(getApplicationContext(), "Shop", Toast.LENGTH_SHORT).show();
             }
         });
@@ -56,7 +56,7 @@ public class DashboardActivity extends AppCompatActivity {
         message_card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoNextPage(v,MessageActivity.class);
+                gotoNextPage(v, MessageActivity.class);
                 Toast.makeText(getApplicationContext(), "Message", Toast.LENGTH_SHORT).show();
             }
         });
@@ -66,7 +66,7 @@ public class DashboardActivity extends AppCompatActivity {
         profile_card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoNextPage(v,ProfileActivity.class);
+                gotoNextPage(v, ProfileActivity.class);
                 Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_SHORT).show();
             }
         });
@@ -76,7 +76,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void gotoNextPage(View view, Class<? extends Activity> activityClass) {
 
-        Intent intent = new Intent(DashboardActivity.this,activityClass);
+        Intent intent = new Intent(DashboardActivity.this, activityClass);
         startActivity(intent);
     }
 
@@ -85,7 +85,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.dashboard_menu,menu);
+        getMenuInflater().inflate(R.menu.dashboard_menu, menu);
         return true;
     }
 
@@ -94,6 +94,8 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.logout) {
+            Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
+            startActivity(intent);
             Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();
         }
         return true;
