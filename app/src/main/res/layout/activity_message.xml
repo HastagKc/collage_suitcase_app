@@ -1,9 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:padding="20dp"
     tools:context=".Activity.MessageActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/mes_back_btn"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:background="@drawable/back"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/top_lay_mes"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/mes_back_btn">
+
+        <ImageView
+            android:id="@+id/camera_mes_image"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/mes_back_btn"
+            android:background="@drawable/image"
+            android:scaleType="fitXY" />
+
+        <!--      camera btn -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mes_camera_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/camera_mes_image"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="40dp"
+            android:padding="8dp"
+            android:text="Open Camera" />
+    </LinearLayout>
+
+
+    <!-- Product name -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/productTextInputLayout_mes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_lay_mes"
+        android:layout_marginTop="8dp"
+        android:hint="Product Name"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/productEditText_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10sp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <!--    Product Price -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/productPriceTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productTextInputLayout_mes"
+        android:layout_marginTop="8dp"
+        android:hint="Price"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/productPriceEditText_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10sp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--  Phone Number  -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumTextInputLayout_mes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/productPriceTextInputLayout"
+        android:layout_marginTop="8dp"
+        android:hint="Phone Number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNumberEditText_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10sp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--  Message -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/messageTextInputLayout_mes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneNumTextInputLayout_mes"
+        android:layout_marginTop="8dp"
+        android:hint="Message">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/messageEditText_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10sp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <!--   Location -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/productLocationTextInputLayout_mes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/messageTextInputLayout_mes"
+        android:layout_marginTop="8dp"
+        android:hint="Location">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/productLocationEditText_mes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="10sp"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="16dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--    fab button for add data to database-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/sent_msg_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10sp"
+        android:contentDescription="TODO"
+        android:elevation="5sp"
+        android:src="@drawable/send"
+        app:backgroundTint="@color/black"
+        app:tint="@color/white" />
+</RelativeLayout>

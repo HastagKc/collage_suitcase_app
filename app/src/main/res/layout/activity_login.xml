@@ -19,6 +19,8 @@
         android:textStyle="bold" />
 
 
+<!--    email-->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
         android:layout_width="match_parent"
