@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".Activity.AddProductActivity">
+
+    <!-- Image View for Product Image -->
+    <ImageView
+        android:id="@+id/back_btn_product_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="Back Btn"
+        android:src="@drawable/back" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/back_btn_product_add">
+        <!-- Image View for Product Image -->
+        <ImageView
+
+            android:id="@+id/imageView_product_add"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Product Image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image" />
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/image_from_camera_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="From Camera"/>
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/from_gallery_btn"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="10dp"
+               android:text="From Gallery"/>
+       </LinearLayout>
+
+    </LinearLayout>
+    <!-- Text Input for Product Name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLay"
+        android:layout_marginTop="16dp"
+        android:hint="Product Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_product_name_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="100"
+            android:maxLines="1"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Text Input for Product Price -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInput_product_name"
+        android:layout_marginTop="16dp"
+        android:hint="Price">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_product_price_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Text Input for Product Description -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInput_product_price"
+        android:layout_marginTop="16dp"
+        android:hint="Description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_product_description_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLength="500"
+            android:maxLines="5" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Text Input for Product Location -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_product_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInput_product_description"
+        android:layout_marginTop="16dp"
+        android:hint="Location">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_product_location_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLength="100"
+            android:maxLines="1"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Add Product"
+        android:src="@drawable/add" />
+</RelativeLayout>

@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.suitcaseprojectapp.Model.DbHelper;
+import com.example.suitcaseprojectapp.Database.DbHelper;
 import com.example.suitcaseprojectapp.R;
 import com.google.android.material.textfield.TextInputEditText;
 

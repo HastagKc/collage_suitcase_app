@@ -1,4 +1,4 @@
-package com.example.suitcaseprojectapp.Model;
+package com.example.suitcaseprojectapp.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -28,12 +28,23 @@ public class DbHelper extends SQLiteOpenHelper {
                 "email TEXT," +
                 "password TEXT )";
 
+        String CREATE_PRODUCT_TABLE = "CREATE TABLE " + TABLE_PRODUCT +
+                "(productid INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "productname TEXT," +
+                "productprice TEXT," +
+                "productdescription TEXT," +
+                "isPurchase TEXT," +
+                "productimage BLOB," +
+                "location TEXT )";
+
         db.execSQL(CREATE_TABLE_QUERY);
+        db.execSQL(CREATE_PRODUCT_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCT);
         onCreate(db);
     }
 
@@ -61,7 +72,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public boolean loginHelper(String email1, String pass1) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT*FROM " + TABLE_USER + " WHERE email='" + email1 + "'AND password='" + pass1 + "' ", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_USER + " WHERE email='" + email1 + "'AND password='" + pass1 + "' ", null);
         if (cursor.moveToFirst()) {
             loggedIn = true;
 
@@ -70,4 +81,21 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         return loggedIn;
     }
+
+
+    // Insert method for product
+    public long productadd(String name, String price, String des, byte[] image, String purchase, String location) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("productname", name);
+        contentValues.put("productprice", price);
+        contentValues.put("productdescription", des);
+        contentValues.put("isPurchase", purchase);
+        contentValues.put("productimage", image); // Store the image as a byte array
+        contentValues.put("location", location);
+
+        return sqLiteDatabase.insert(TABLE_PRODUCT, null, contentValues);
+    }
+
 }
